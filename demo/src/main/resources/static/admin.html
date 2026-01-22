@@ -17,7 +17,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #19d6f3 0%, #248bdb 100%);
             min-height: 100vh;
             padding: 20px;
         }
@@ -33,7 +33,7 @@
         }
 
         .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #19d6f3 0%, #248bdb 100%);
             padding: 30px;
             color: white;
             display: flex;
@@ -99,7 +99,7 @@
         }
 
         .stat-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #19d6f3 0%, #248bdb 100%);
             color: white;
             padding: 25px;
             border-radius: 12px;
@@ -176,7 +176,7 @@
 
         .search-btn {
             padding: 12px 25px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #19d6f3 0%, #248bdb 100%);
             color: white;
             border: none;
             border-radius: 8px;
@@ -697,7 +697,7 @@
 <div class="container">
     <div class="header">
         <div class="header-left">
-            <h1>VBS Admin</h1>
+            <h1>VBS Admin 🤖</h1>
             <p>Virtual Banking System - Administration Panel</p>
         </div>
         <div class="header-buttons">
@@ -718,7 +718,7 @@
 
         <div class="stats-grid">
             <div class="stat-card">
-                <p>Total Users</p>
+                <p>Total Users 👤</p>
                 <div class="stat-value" id="totalUsers">0</div>
             </div>
             <div class="stat-card">
@@ -730,7 +730,7 @@
                 <div class="stat-value">₹<span id="avgBalance">0</span></div>
             </div>
             <div class="stat-card">
-                <p>Active Users</p>
+                <p>Active Users 🟢</p>
                 <div class="stat-value" id="activeUsers">0</div>
             </div>
         </div>
@@ -897,16 +897,16 @@
         try {
             const response = await fetch(`${API_URL}/users?sortBy=${sortBy}&order=${order}`);
             if (!response.ok) throw new Error('Failed to load users');
-            
+
             allUsers = await response.json();
             filteredUsers = [...allUsers];
             currentSortBy = sortBy;
             currentSortOrder = order;
-            
+
             // Update dropdown values
             document.getElementById('sortBy').value = sortBy;
             document.getElementById('sortOrder').value = order;
-            
+
             updateStatistics();
             displayUsers(filteredUsers);
         } catch (error) {
@@ -1016,7 +1016,7 @@
         // Display pagination
         if (totalPages > 1) {
             let paginationHTML = '';
-            
+
             if (currentPage > 1) {
                 paginationHTML += `<button onclick="goToPage(${currentPage - 1})">← Previous</button>`;
             }
@@ -1112,7 +1112,7 @@
         }, 3000);
     }
 
-  
+
     function logout() {
         window.location.href = 'home.html';
     }
@@ -1193,7 +1193,7 @@
 
     function confirmDeleteUser(id, name) {
         userToDeleteId = id;
-        document.getElementById('deleteConfirmText').textContent = 
+        document.getElementById('deleteConfirmText').textContent =
             `Are you sure you want to delete "${name}"? This action cannot be undone.`;
         document.getElementById('deleteConfirmDialog').classList.add('show');
     }
@@ -1204,7 +1204,7 @@
         userToDeleteId = null;
     }
 
-   
+
     async function deleteUser() {
         if (!userToDeleteId) return;
 
@@ -1246,7 +1246,7 @@
         const viewModal = document.getElementById('viewUserModal');
         const addModal = document.getElementById('addUserModal');
         const deleteDialog = document.getElementById('deleteConfirmDialog');
-        
+
         if (e.target === viewModal) {
             viewModal.classList.remove('show');
         }
